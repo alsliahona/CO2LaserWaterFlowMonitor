@@ -18,6 +18,9 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
+//
+// NOTE: This is based losely on code found here: http://playground.arduino.cc/Interfacing/CPPWindows
+
 #include <stdafx.h>
 #include "ArdSerial.h"
 #include <array>
