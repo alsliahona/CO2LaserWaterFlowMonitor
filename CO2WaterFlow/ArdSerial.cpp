@@ -32,8 +32,6 @@ bool ArduinoSerial::Open(const std::wstring &wstrPortName)
 	{
 		return false;		// Already connected
 	}
-//	std::wstring wstrPortName(L"\\\\.");
-//	wstrPortName += wstrPortNameIn;
 
 	//Try to connect to the given port throuh CreateFile
 	m_hSerial = CreateFile(wstrPortName.c_str(),
@@ -126,7 +124,7 @@ void ArduinoSerial::ReadAvailable()
 
 	std::vector<char> vArray(m_status.cbInQue, 0);
 
-	//Try to read the require number of chars, and return the number of read bytes on success
+	//Try to read the require number of chars
 	DWORD dwBytesRead = 0;
 	if(FALSE == ReadFile(m_hSerial, &vArray[0], static_cast<DWORD>(vArray.size()), &dwBytesRead, nullptr))
 	{
@@ -137,9 +135,6 @@ void ArduinoSerial::ReadAvailable()
 	{
 		m_vBuffer.push_back(c);
 	}
-
-	//If nothing has been read, or that an error was detected return 0
-	return;
 }
 
 bool ArduinoSerial::ReadNullZString(std::string &strRead)
